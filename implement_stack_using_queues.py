@@ -1,36 +1,39 @@
 """Implement Stack using Queues"""
 
 
+from queue import Queue
+
+
 class MyStack(object):
     """Class implementing stack"""
 
     def __init__(self):
-        pass
+        
 
     def push(self, x):
         """
         :type x: int
         :rtype: None
         """
-        
+
 
     def pop(self):
         """
         :rtype: int
         """
-        
+
 
     def top(self):
         """
         :rtype: int
         """
-        
+
 
     def empty(self):
         """
         :rtype: bool
         """
-        
+
 
 
 # Your MyStack object will be instantiated and called as such:
