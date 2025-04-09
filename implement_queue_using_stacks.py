@@ -24,18 +24,23 @@ class MyQueue(object):
         """
         :rtype: int
         """
-        return self.stack_main.get()
+        while not self.stack_main.empty():
+            self.stack_second.put(self.stack_main.get())
+        first = self.stack_second.get()
+        while not self.stack_second.empty():
+            self.stack_main.put(self.stack_second.get())
+        return first
 
 
     def peek(self):
         """
         :rtype: int
         """
-        while self.stack_main:
+        while not self.stack_main.empty():
             self.stack_second.put(self.stack_main.get())
         first = self.stack_second.get()
         self.stack_second.put(first)
-        while self.stack_second:
+        while not self.stack_second.empty():
             self.stack_main.put(self.stack_second.get())
         return first
 
@@ -44,7 +49,7 @@ class MyQueue(object):
         """
         :rtype: bool
         """
-        return not self.stack_main.full()
+        return self.stack_main.empty()
 
 
 # Your MyQueue object will be instantiated and called as such:
