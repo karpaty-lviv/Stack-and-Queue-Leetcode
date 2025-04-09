@@ -26,6 +26,7 @@ class MyStack(object):
             self.queue_second.put(self.queue_main.get())
         last = self.queue_main.get()
         self.queue_main = self.queue_second
+        self.queue_second = Queue()
         return last
 
     def top(self):
@@ -37,6 +38,7 @@ class MyStack(object):
         last = self.queue_main.get()
         self.queue_second.put(last)
         self.queue_main = self.queue_second
+        self.queue_second = Queue()
         return last
 
 
