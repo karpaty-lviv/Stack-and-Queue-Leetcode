@@ -38,6 +38,7 @@ class FreqStack:
             if elem in freq_dict[max_freq]:
                 while not self.second_stack.empty():
                     self.main_stack.put(self.second_stack.get())
+                self.val_dict[elem] -= 1
                 return elem
             else:
                 self.second_stack.put(elem)
@@ -46,5 +47,17 @@ class FreqStack:
 
 # Your FreqStack object will be instantiated and called as such:
 # obj = FreqStack()
-# obj.push(val)
+# obj.push()
 # param_2 = obj.pop()
+
+freqStack = FreqStack()
+freqStack.push(5)
+freqStack.push(7)
+freqStack.push(5)
+freqStack.push(7)
+freqStack.push(4)
+freqStack.push(5)
+print(freqStack.pop())
+print(freqStack.pop())
+print(freqStack.pop())
+print(freqStack.pop())
